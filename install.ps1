@@ -2,21 +2,27 @@
 # (C) Retorillo / The MIT license
 
 $remote = "https://tpo.pe/pathogen.vim"
-$local  = "$home\autoload\pathogen.vim"
+$local  = "$home\vimfiles\autoload\pathogen.vim"
 $ErrorActionPreference = "Stop"
 
-"autoload", "bundle" | % {
-	if (Test-Path "$home\$_") {
+"vimfiles", "vimfiles\autoload", "vimfiles\bundle" | % {
+	if (-not (Test-Path "$home\$_")) {
 		[void](mkdir "$home\$_")
 		echo "$_ is created"
 	}
+	else {
+		echo "$_ exists"
+	}
 }
 
-if (Test-Path $local) {
+if (-not (Test-Path $local)) {
 	$client = New-Object Net.WebClient
 	$client.DownloadFile($remote, $local)
 	$client.Dispose()
-	echo "$remote is downloaded"
+	echo "pathogen.vim is downloaded"
+}
+else {
+	echo "pathogen.vim exists"
 }
 
 vim --noplugin -n -e -s -c "verbose source `"$PSScriptRoot\patch.vim`"" +q
