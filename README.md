@@ -10,8 +10,8 @@ PS> .\install.ps1
 
 This script will DO:
 
-- Make `~/bundle` and ~/autoload` if does not exist
-- Download `~/autoload/pathogen.vim` if does not exist
+- Make `~/vimfiles/bundle` and `~/vimfiles/autoload` if does not exist
+- Download `~/vimfiles/autoload/pathogen.vim` if does not exist
 - Add `execute pathogen#infect()` to your `_vimrc` or `.vimrc` if does not exist
 
 Copyright (C) Retorillo / Distributed under the MIT License
