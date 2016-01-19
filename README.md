@@ -1,26 +1,17 @@
 # Pathogen.vim Installer for Windows
 
-Installer for pathogen.vim that is a cool plugin manager: https://github.com/tpope/vim-pathogen/
+Installer for [pathogen.vim](https://github.com/tpope/vim-pathogen/)
 
-**WARNING: THIS INSTSTALLER MAY DESTRUCT YOUR VIMRC: `.vimrc` or `_vimrc` must be UTF-8**
+Run `install.ps1` to install pathogen.vim
 
-The followings are files for installer:
+```PowerShell
+PS> .\install.ps1
+```
 
-* install.exe
-* install.cs
+This script will DO:
 
-The followings are examples of plugin installation by using Pathogen
+- Make `~/bundle` and ~/autoload` if does not exist
+- Download `~/autoload/pathogen.vim` if does not exist
+- Add `execute pathogen#infect()` to your `_vimrc` or `.vimrc` if does not exist
 
-* examples/vim-ps1 ([vim-ps1](https://github.com/PProvost/vim-ps1))
-* examples/typescript-vim.ps1 ([typescript-vim](https://github.com/leafgarland/typescript-vim))
-
-The followings are files for build:
-
-* build.bat
-* build.ps1
-* gulpfile.js
-
-Copyright (C) Retorillo / Distributed under the MIT License.
-
-
-
+Copyright (C) Retorillo / Distributed under the MIT License
